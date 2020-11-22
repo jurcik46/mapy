@@ -25,7 +25,6 @@ router.get("/", function (req, res, next) {
   .pipe(csvParser({ separator: ';' }))
   .on('data', (data) => results.push(data))
   .on('end', () => {
-    console.log(results);
     res.render('../src/views/main', { data: results});
   });
 
