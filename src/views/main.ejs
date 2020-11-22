@@ -3,6 +3,7 @@
 <head>
     <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
     <script type="text/javascript">Loader.load();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 
 
@@ -11,15 +12,59 @@
 <body class="container">
 <main>
     <div id="m" style="height:1200px"></div>
+    
     <% data.forEach(function(row){ %>
+        <div class="order">
         <p>---------------------------- </p>
-        <p><%= row.zeme %>| <%= row.mesto %>  | <%= row.objednavka %> | <%= row.ulice %> | <%= row.psc %> 
-          </p>
+        <span class="zeme"> <%= row.zeme %> </span>
+        <span class="mesto" > <%= row.mesto %>  </span>
+        <span class="objednavka"> <%= row.objednavka %>  </span>
+        <span class="ulice"> <%= row.ulice %></span>
+        <span class="psc" > <%= row.psc %> </span>
+        </div>
       <% }); %>
 </main>
 
+<script> 
 
-<script> var center = SMap.Coords.fromWGS84(14.41790, 50.12655);
+    
+    var m = new SMap(JAK.gel("m"));
+    m.addControl(new SMap.Control.Sync());
+    m.addDefaultLayer(SMap.DEF_BASE).enable();
+    m.addDefaultControls(); 
+
+    
+    $(".order").each(function( index ) {
+            let psc = $(this).find(".psc")
+            let ulice = $(this).find(".ulice")
+            let mesto = $(this).find(".mesto")
+            let result = `${psc.text()} ${ulice.text()} ${mesto.text()}`;
+            console.log(result);
+            geokoduj(result);
+    });
+
+
+    function odpoved(geocoder) { /* Odpověď */
+        if (!geocoder.getResults()[0].results.length) {
+            alert("Tohle neznáme.");
+            return;
+        }
+        
+        var vysledky = geocoder.getResults()[0].results;
+        var data = [];
+        while (vysledky.length) { /* Zobrazit všechny výsledky hledání */
+            var item = vysledky.shift()
+            data.push(item.label + " (" + item.coords.toWGS84(2).reverse().join(", ") + ")");
+        }
+        alert(data.join("\n"));
+    }
+
+    function geokoduj(vstup) {  /* Voláno při odeslání */
+        new SMap.Geocoder(vstup, odpoved);
+    }
+
+
+var center = SMap.Coords.fromWGS84(14.41790, 50.12655);
     var m = new SMap(JAK.gel("m"), center, 13);
     m.addDefaultLayer(SMap.DEF_BASE).enable();
     m.addDefaultControls();
