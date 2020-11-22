@@ -11,8 +11,8 @@
 </head>
 <body class="container">
 <main>
+    <a href="/refresh" class="button">Refresh points</a>
     <div id="m" style="height:1200px"></div>
-    
     <% data.forEach(function(row){ %>
         <div class="order">
         <p>---------------------------- </p>
@@ -32,7 +32,13 @@
     m.addControl(new SMap.Control.Sync());
     m.addDefaultLayer(SMap.DEF_BASE).enable();
     m.addDefaultControls(); 
+    var layer = new SMap.Layer.Marker();
+    m.addLayer(layer);
+    layer.enable();
+    var clusterer = new SMap.Marker.Clusterer(m);
+    layer.setClusterer(clusterer);
 
+    var options = {};
     
     $(".order").each(function( index ) {
             let psc = $(this).find(".psc")
@@ -46,7 +52,7 @@
 
     function odpoved(geocoder) { /* Odpověď */
         if (!geocoder.getResults()[0].results.length) {
-            alert("Tohle neznáme.");
+            console.log("Tohle neznáme.")
             return;
         }
         
@@ -54,9 +60,15 @@
         var data = [];
         while (vysledky.length) { /* Zobrazit všechny výsledky hledání */
             var item = vysledky.shift()
+            console.log(item.coords.x);
+            console.log(item.coords.y);
+
+            var coords = SMap.Coords.fromWGS84(item.coords.x, item.coords.y);
+            var marker = new SMap.Marker(coords, item.label , options);
+            layer.addMarker(marker);
             data.push(item.label + " (" + item.coords.toWGS84(2).reverse().join(", ") + ")");
         }
-        alert(data.join("\n"));
+        console.log(data.join("\n"));
     }
 
     function geokoduj(vstup) {  /* Voláno při odeslání */
@@ -64,18 +76,7 @@
     }
 
 
-var center = SMap.Coords.fromWGS84(14.41790, 50.12655);
-    var m = new SMap(JAK.gel("m"), center, 13);
-    m.addDefaultLayer(SMap.DEF_BASE).enable();
-    m.addDefaultControls();
-    
-    var layer = new SMap.Layer.Marker();
-    m.addLayer(layer);
-    layer.enable();
-    
-    var options = {};
-    var marker = new SMap.Marker(center, "myMarker", options);
-    layer.addMarker(marker);
+
     </script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 import express from "express";
 import  csvParser from "csv-parser";
 import fs from "fs";
+import https from "https";
+
 import path from "path";
 
 
@@ -25,6 +27,26 @@ router.get("/", function (req, res, next) {
   .on('end', () => {
     res.render('../src/views/main', { data: results});
   });
+
+});
+
+
+//** POST: "/api/" */
+router.get("/refresh", async function (req, res, next) {
+  let results = [];
+
+  const file = fs.createWriteStream("/home/jano/dev/mapa/public/orders.csv");
+  const request = await https.get("https://www.max-i.cz/export/orders.csv?patternId=41&hash=327419915a8b934baa161562f881ef3958509271e981a009c5128e0154523315", function(response) {
+   response.pipe(file);
+   res.redirect('/');
+  });
+
+  // fs.createReadStream('/home/jano/dev/mapa/public/orders.csv', { encoding: 'binary' })
+  // .pipe(csvParser({ separator: ';' }))
+  // .on('data', (data) => results.push(data))
+  // .on('end', () => {
+  //   res.render('../src/views/main', { data: results});
+  // });
 
 });
 
