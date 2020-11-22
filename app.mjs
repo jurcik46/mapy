@@ -39,6 +39,7 @@ app.use(
 app.use(cookieParser());
 
 //** Static folder  */
+console.log(staticFolderPath);
 app.use(express.static(staticFolderPath));
 
 

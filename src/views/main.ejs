@@ -5,28 +5,51 @@
     <script type="text/javascript">Loader.load();</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+/* #orders{
+    display: none;
 
+} */
+.order{
+    border: 1px solid black;
+}
+
+button{
+    margin: 5;
+}
 
 </style>
 </head>
 <body class="container">
 <main>
-    <a href="/refresh" class="button">Refresh points</a>
+    <a href="/refresh" onclick='resetData()'  class="button"><button>Refresh points</button> </a>
+    <a onclick='saveData()' class="button"><button  >Save points</button> </a>
     <div id="m" style="height:1200px"></div>
+    <div id="orders">
     <% data.forEach(function(row){ %>
         <div class="order">
-        <p>---------------------------- </p>
-        <span class="zeme"> <%= row.zeme %> </span>
-        <span class="mesto" > <%= row.mesto %>  </span>
-        <span class="objednavka"> <%= row.objednavka %>  </span>
-        <span class="ulice"> <%= row.ulice %></span>
-        <span class="psc" > <%= row.psc %> </span>
+        <span class="zeme"><%= row.zeme %></span>
+        <span class="mesto" ><%= row.mesto %></span>
+        <span class="objednavka"><%= row.objednavka %></span>
+        <span class="ulice"><%= row.ulice %></span>
+        <span class="psc" ><%= row.psc %></span>
+        <span class="color">default</span>
         </div>
       <% }); %>
+    </div>
 </main>
 
 <script> 
+    var allOrders = [];
+   var allMarks = [];
+    function saveData(){
+       localStorage.setItem("marks", JSON.stringify(allOrders));
+    }
 
+    function resetData(){
+        localStorage.removeItem("marks");
+        // initAllNew();
+        // localStorage.setItem("marks",JSON.stringify(layer.getMarkers()));
+    }
     
     var m = new SMap(JAK.gel("m"));
     m.addControl(new SMap.Control.Sync());
@@ -38,19 +61,48 @@
     var clusterer = new SMap.Marker.Clusterer(m);
     layer.setClusterer(clusterer);
 
-    var options = {};
     
-    $(".order").each(function( index ) {
-            let psc = $(this).find(".psc")
-            let ulice = $(this).find(".ulice")
-            let mesto = $(this).find(".mesto")
-            let result = `${psc.text()} ${ulice.text()} ${mesto.text()}`;
-            console.log(result);
-            geokoduj(result);
-    });
+    
+    function changeMarker(markerId, color){
+        var allMarks = layer.getMarkers();
+        var findeMark = allMarks.find(mark => mark._id == markerId);
+        var findOrder = allOrders.find(order => order.label == markerId);
+        layer.removeMarker(findeMark, false);
+        layer.redraw();
+        var cords = SMap.Coords.fromWGS84(findeMark._coords.x, findeMark._coords.y );
+        var card = findeMark._card;
+        var options = {}
+        switch(color){
+            case 'purple':
+                options.url = `/images/marks/car1.png`
+                findOrder.color = "purple"
+            break;
+            case 'blue':
+                options.url = `/images/marks/car2.png`
+                findOrder.color = "blue"
+                break;
+            case 'green': 
+                options.url = `/images/marks/car3.png`
+                findOrder.color = "green"
+                break;
+            case 'azure': 
+                options.url = `/images/marks/car4.png`
+                findOrder.color = "azure"
+                break;
+            default:
+                options.url = `https://api.mapy.cz/img/api/marker/drop-red.png`
+                findOrder.color = "default"
 
+        }
+        var marker = new SMap.Marker(cords, markerId , options);
+            marker.decorate(SMap.Marker.Feature.Card, card);
+        layer.addMarker(marker);
+        // layer.addMarker(findeMark, true);
+        // layer.redraw();
+        // layer.clear();
+    }
 
-    function odpoved(geocoder) { /* Odpověď */
+    let odpoved =  (order) => (geocoder) => { /* Odpověď */
         if (!geocoder.getResults()[0].results.length) {
             console.log("Tohle neznáme.")
             return;
@@ -60,21 +112,87 @@
         var data = [];
         while (vysledky.length) { /* Zobrazit všechny výsledky hledání */
             var item = vysledky.shift()
-            console.log(item.coords.x);
-            console.log(item.coords.y);
+            // console.log(item.coords.x);
+            // console.log(item.coords.y);
+            var options = {}
+                switch(order.color){
+                    case 'purple':
+                        options.url = `/images/marks/car1.png`
+                    break;
+                    case 'blue':
+                        options.url = `/images/marks/car2.png`
+                        break;
+                    case 'green': 
+                        options.url = `/images/marks/car3.png`
+                        break;
+                    case 'azure': 
+                        options.url = `/images/marks/car4.png`
+                        break;
+                    default:
+                        options.url = `https://api.mapy.cz/img/api/marker/drop-red.png`
+                }
+            var card = new SMap.Card();
+            card.getHeader().innerHTML = `<strong>${order.objednavka.text()}</strong>`;
 
+            var pomHtmlImgPurple = `<img onclick="changeMarker('${item.label}', 'purple')" src="/images/marks/car1.png"/>`;
+            var pomHtmlImgBlue = `<img onclick="changeMarker('${item.label}', 'blue')" src="/images/marks/car2.png"/>`;
+            var pomHtmlImgGreen = `<img onclick="changeMarker('${item.label}', 'green')" src="/images/marks/car3.png"/>`;
+            var pomHtmlImgAzure = `<img onclick="changeMarker('${item.label}', 'azure')" src="/images/marks/car4.png"/>`;
+
+            var pomHtmlButton = `<div><button onclick="changeMarker('${item.label}', 'red')"> Remove Mark </button></div>`
+            card.getBody().innerHTML = `${item.label} <div> ${pomHtmlImgPurple} ${pomHtmlImgBlue} ${pomHtmlImgGreen} ${pomHtmlImgAzure}</div> ${pomHtmlButton}`;
+
+            order.label = item.label;
             var coords = SMap.Coords.fromWGS84(item.coords.x, item.coords.y);
             var marker = new SMap.Marker(coords, item.label , options);
+            marker.decorate(SMap.Marker.Feature.Card, card);
             layer.addMarker(marker);
-            data.push(item.label + " (" + item.coords.toWGS84(2).reverse().join(", ") + ")");
+            // data.push(item.label + " (" + item.coords.toWGS84(2).reverse().join(", ") + ")");
         }
-        console.log(data.join("\n"));
+        // console.log(data.join("\n"));
     }
 
-    function geokoduj(vstup) {  /* Voláno při odeslání */
-        new SMap.Geocoder(vstup, odpoved);
+
+
+
+    const geokoduj = (vstup, objednavka) => {  /* Voláno při odeslání */
+        new SMap.Geocoder(vstup, odpoved(objednavka));
+    }
+    const initAll = () => {
+        allOrders = [];
+        $(".order").each(function( index ) {
+        // psc:"", ulice:"",mesto:"",objednavka:"",id:""
+        allOrders
+            let order= {}
+            order.html = $(this).html();
+            order.psc = $(this).find(".psc")
+            order.ulice = $(this).find(".ulice")
+            order.mesto = $(this).find(".mesto")
+            order.objednavka = $(this).find(".objednavka")
+            order.color = $(this).find(".color").text()
+            order.id = `${order.psc.text()} ${order.ulice.text()} ${order.mesto.text()}`;
+            allOrders.push(order)
+            geokoduj(order.id , order);
+    });
     }
 
+    const initAllFromCache = () =>{
+        let  mar = JSON.parse(localStorage.getItem("marks"));
+        $('#orders').empty();
+        mar.forEach(mark => {
+            $('#orders').append(`<div class="order"> ${mark.html}</div>`);
+            $('.order:last .color').text(mark.color);
+        });
+   
+    }
+
+    let  marks = localStorage.getItem("marks");
+   if(!marks){
+    initAll();
+   }else{
+    initAllFromCache();
+    initAll()
+   }
 
 
     </script>

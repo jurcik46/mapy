@@ -1,9 +1,8 @@
 import { default as path, dirname } from "path";
 import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-export const staticFolderPath = path.join(__dirname, "public");
+const __dirname = dirname(fileURLToPath(import.meta.url),"../..");
+export const staticFolderPath = path.join(path.dirname(__dirname, '../..'), "public");
 export const APP_ROUTE_PREFIX = process.env.APP_ROUTE_PREFIX;
 export const PASSWORD_SALT_FACTOR = process.env.PASSWORD_SALT_FACTOR;
 export const JWT_SECRET = process.env.JWT_SECRET_KEY;
