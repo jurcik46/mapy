@@ -2,8 +2,9 @@ import express from "express";
 import  csvParser from "csv-parser";
 import fs from "fs";
 import https from "https";
+import iconv from "iconv-lite"
 
-import path from "path";
+import { default as path, dirname } from "path";
 
 import { staticFolderPath, APP_ROUTE_PREFIX } from "../../configs/app.config.mjs";
 
@@ -19,15 +20,12 @@ const router = express.Router();
 router.get("/", function (req, res, next) {
   let results = [];
 
-  // return res.json({
-  //       title: `${title}`
-  //     });
-  // console.log(path.resolve('orders.csv'))
-  // ['zeme','psc','mesto','ulice','objednavka']
-  fs.createReadStream(`${staticFolderPath}/orders.csv`, { encoding: 'binary' })
+  fs.createReadStream(`${staticFolderPath}/orders.csv`)
+  .pipe(iconv.decodeStream('win1250'))
   .pipe(csvParser({ separator: ';' }))
   .on('data', (data) => results.push(data))
   .on('end', () => {
+    console.log(results);
     res.render('../src/views/main', { data: results});
   });
 

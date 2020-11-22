@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cz">
 <head>
+    <meta charset="ISO-8859-2">
     <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
     <script type="text/javascript">Loader.load();</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,6 +22,7 @@ button{
 </head>
 <body class="container">
 <main>
+
     <a href="/refresh" onclick='resetData()'  class="button"><button>Refresh points</button> </a>
     <a onclick='saveData()' class="button"><button  >Save points</button> </a>
     <div id="m" style="height:1200px"></div>
@@ -104,9 +106,10 @@ button{
 
     let odpoved =  (order) => (geocoder) => { /* Odpověď */
         if (!geocoder.getResults()[0].results.length) {
-            console.log("Tohle neznáme.")
+            order.status = "failed";
             return;
         }
+        order.status = "success";
         
         var vysledky = geocoder.getResults()[0].results;
         var data = [];
@@ -162,7 +165,6 @@ button{
         allOrders = [];
         $(".order").each(function( index ) {
         // psc:"", ulice:"",mesto:"",objednavka:"",id:""
-        allOrders
             let order= {}
             order.html = $(this).html();
             order.psc = $(this).find(".psc")
@@ -180,8 +182,9 @@ button{
         let  mar = JSON.parse(localStorage.getItem("marks"));
         $('#orders').empty();
         mar.forEach(mark => {
-            $('#orders').append(`<div class="order"> ${mark.html}</div>`);
+            $('#orders').append(`<span class="status"> ${mark.status} <div class="order"> ${mark.html}  </div> </span>`);
             $('.order:last .color').text(mark.color);
+
         });
    
     }
