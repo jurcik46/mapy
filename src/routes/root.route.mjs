@@ -5,7 +5,7 @@ import https from "https";
 
 import path from "path";
 
-import { staticFolderPath, APP_ROUTE_PREFIX } from "./configs/app.config.mjs";
+import { staticFolderPath, APP_ROUTE_PREFIX } from "../../configs/app.config.mjs";
 
 
 
