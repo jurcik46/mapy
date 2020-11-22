@@ -5,6 +5,9 @@ import https from "https";
 
 import path from "path";
 
+import { staticFolderPath, APP_ROUTE_PREFIX } from "./configs/app.config.mjs";
+
+
 
 const router = express.Router();
 
@@ -21,7 +24,7 @@ router.get("/", function (req, res, next) {
   //     });
   // console.log(path.resolve('orders.csv'))
   // ['zeme','psc','mesto','ulice','objednavka']
-  fs.createReadStream('/home/jano/dev/mapa/public/orders.csv', { encoding: 'binary' })
+  fs.createReadStream(`${staticFolderPath}/orders.csv`, { encoding: 'binary' })
   .pipe(csvParser({ separator: ';' }))
   .on('data', (data) => results.push(data))
   .on('end', () => {
@@ -35,7 +38,7 @@ router.get("/", function (req, res, next) {
 router.get("/refresh", async function (req, res, next) {
   let results = [];
 
-  const file = fs.createWriteStream("/home/jano/dev/mapa/public/orders.csv");
+  const file = fs.createWriteStream(`${staticFolderPath}/orders.csv`);
   const request = await https.get("https://www.max-i.cz/export/orders.csv?patternId=41&hash=327419915a8b934baa161562f881ef3958509271e981a009c5128e0154523315", function(response) {
    response.pipe(file);
    res.redirect('/');
