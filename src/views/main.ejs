@@ -13,19 +13,24 @@
 .order{
     border: 1px solid black;
 }
-
+#control{
+    margin-bottom: 5;
+    height: auto;
+}
 button{
-    margin: 5;
+    height: 50px;
+    margin-left: 5;
 }
 
 </style>
 </head>
 <body class="container">
 <main>
-
-    <a href="/refresh" onclick='resetData()'  class="button"><button>Refresh points</button> </a>
-    <a onclick='saveData()' class="button"><button  >Save points</button> </a>
-    <div id="m" style="height:1200px"></div>
+    <div id="control">
+    <a href="/refresh" onclick='resetData()'  class="button"><button>Aktualizovat a vymazat</button> </a>
+    <a onclick='saveData()' class="button"><button  >Ulozit</button> </a>
+    </div> 
+    <div id="m" style="height:650px"></div>
     <div id="orders">
     <% data.forEach(function(row){ %>
         <div class="order">
