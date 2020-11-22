@@ -1,0 +1,658 @@
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:29:54.974Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[33m404\x1B[0m 3.557 ms - 23\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:04.226Z',
+  ms: '+9s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /favicon.ico \x1B[33m404\x1B[0m 0.708 ms - 23\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:04.782Z',
+  ms: '+556ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:17.143Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[32m200\x1B[0m 4.321 ms - 21\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:18.339Z',
+  ms: '+1s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[36m304\x1B[0m 1.169 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:18.877Z',
+  ms: '+538ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[36m304\x1B[0m 0.891 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:19.094Z',
+  ms: '+217ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[36m304\x1B[0m 0.942 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:19.277Z',
+  ms: '+183ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:37.587Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[31m500\x1B[0m 4.838 ms - 46\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:38.370Z',
+  ms: '+783ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[31m500\x1B[0m 0.765 ms - 46\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:38.594Z',
+  ms: '+224ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:43.440Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[32m200\x1B[0m 4.035 ms - 19\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:44.726Z',
+  ms: '+1s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[36m304\x1B[0m 1.068 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:44.939Z',
+  ms: '+213ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[36m304\x1B[0m 3.260 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:30:45.192Z',
+  ms: '+253ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:33.547Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 3.447 ms - 34\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:35.160Z',
+  ms: '+2s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:42.619Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 23.437 ms - 102\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:43.568Z',
+  ms: '+949ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 0.717 ms - 102\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:44.297Z',
+  ms: '+729ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 0.517 ms - 102\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:44.529Z',
+  ms: '+232ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 0.476 ms - 102\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:44.746Z',
+  ms: '+217ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 0.488 ms - 102\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:40:44.961Z',
+  ms: '+215ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:41:29.437Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 8.095 ms - 274\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:41:30.133Z',
+  ms: '+696ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 6.774 ms - 414\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:33.858Z',
+  ms: '+1m'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 1.913 ms - 913\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:52.093Z',
+  ms: '+18s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 1.148 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.119Z',
+  ms: '+2s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.693 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.282Z',
+  ms: '+163ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.654 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.435Z',
+  ms: '+153ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.752 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.586Z',
+  ms: '+151ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.665 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.745Z',
+  ms: '+159ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.642 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:54.892Z',
+  ms: '+147ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.632 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:42:55.016Z',
+  ms: '+124ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 1.579 ms - 867\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:11.074Z',
+  ms: '+16s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.318 ms - 847\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:21.410Z',
+  ms: '+10s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.744 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:22.796Z',
+  ms: '+1s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.594 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:22.949Z',
+  ms: '+153ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.540 ms - 891\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:58.467Z',
+  ms: '+36s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.732 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:59.351Z',
+  ms: '+884ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.633 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:43:59.493Z',
+  ms: '+142ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 8.117 ms - 891\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:07.081Z',
+  ms: '+8s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.847 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:07.936Z',
+  ms: '+855ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.764 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:08.067Z',
+  ms: '+131ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.106 ms - 933\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:33.890Z',
+  ms: '+26s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.777 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:34.768Z',
+  ms: '+878ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.590 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:34.920Z',
+  ms: '+152ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 1.132 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:44:35.031Z',
+  ms: '+111ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[33m404\x1B[0m 0.742 ms - 23\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:45:25.246Z',
+  ms: '+50s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET /api \x1B[33m404\x1B[0m 0.323 ms - 23\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:45:25.897Z',
+  ms: '+651ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 1.717 ms - 938\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:45:31.333Z',
+  ms: '+5s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 8.149 ms - 897\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:46:00.425Z',
+  ms: '+29s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 8.117 ms - 770\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:46:17.723Z',
+  ms: '+17s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.758 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:46:19.922Z',
+  ms: '+2s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.552 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:46:20.397Z',
+  ms: '+475ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.288 ms - 744\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:46:50.665Z',
+  ms: '+30s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 7.803 ms - 759\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:07.143Z',
+  ms: '+16s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.689 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:08.338Z',
+  ms: '+1s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.682 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:08.501Z',
+  ms: '+163ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 1.048 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:08.637Z',
+  ms: '+136ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.842 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:08.772Z',
+  ms: '+135ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.560 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:08.935Z',
+  ms: '+163ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.609 ms - 718\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:49.161Z',
+  ms: '+40s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 3.105 ms - 719\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:47:56.131Z',
+  ms: '+7s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.666 ms - 719\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:48:02.903Z',
+  ms: '+7s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 0.741 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:48:05.623Z',
+  ms: '+3s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 9.528 ms - 720\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:48:17.135Z',
+  ms: '+12s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:52:55.656Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:54:28.461Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:54:36.184Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:54:49.035Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:54:53.774Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 8.276 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:54:59.047Z',
+  ms: '+5s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:18.839Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 6.994 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:19.842Z',
+  ms: '+1s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 1.453 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:29.433Z',
+  ms: '+10s'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 1.040 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:30.444Z',
+  ms: '+1s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:53.560Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:55:55.855Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:56:00.606Z',
+  ms: '+0ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:56:01.528Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[31m500\x1B[0m 3.679 ms - 32\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:56:05.485Z',
+  ms: '+4s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:56:40.363Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[32m200\x1B[0m 8.549 ms - 720\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:56:41.083Z',
+  ms: '+720ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:57:10.653Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 9.581 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:57:11.398Z',
+  ms: '+745ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:57:16.464Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 6.930 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:57:18.039Z',
+  ms: '+2s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:11.078Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 7.518 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:12.668Z',
+  ms: '+2s'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:18.717Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 7.695 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:19.196Z',
+  ms: '+479ms'
+}
+{
+  label: 'MAIN',
+  message: 'Listening on port 3000',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:23.893Z',
+  ms: '+0ms'
+}
+{
+  label: 'REQUEST',
+  message: '\x1B[0mGET / \x1B[36m304\x1B[0m 6.811 ms - -\x1B[0m\n',
+  level: 'debug',
+  timestamp: '2020-11-22T13:58:24.929Z',
+  ms: '+1s'
+}

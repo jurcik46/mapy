@@ -1,0 +1,42 @@
+{
+  "name": "mapa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cookie-parser": "~1.4.5",
+    "cors": "^2.8.5",
+    "csv-parser": "^2.3.3",
+    "debug": "~4.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "iconv-lite": "^0.6.2",
+    "morgan": "~1.10.0",
+    "node-fetch": "^2.6.0",
+    "rand-token": "^1.0.1",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "events": {
+      "restart": "clear"
+    },
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "node_modules/*"
+    ]
+  },
+  "scripts": {
+    "start": "node -r dotenv/config  --experimental-modules main.mjs && run-script lint",
+    "devstart": "nodemon -e yaml,mjs -r dotenv/config --experimental-modules main.mjs"
+  },
+  "author": "",
+  "license": "ISC"
+}
