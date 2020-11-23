@@ -131,7 +131,7 @@ button{
             var item = vysledky.shift()
             // console.log(item.coords.x);
             // console.log(item.coords.y);
-            var options = {url: `/images/status/${order.status.replace(/\s/g, '')}.png`}
+            var options = {url: `https://www.max-i.cz/user/documents/upload/status/${order.status.replace(/\s/g, '')}.png`}
         
             var card = new SMap.Card();
             card.getHeader().innerHTML = `<strong>${order.objednavka.text()}</strong>`;
