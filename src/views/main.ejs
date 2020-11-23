@@ -32,44 +32,46 @@ button{
     </div> 
     <div id="m" style="height:650px"></div>
     <div id="orders">
-    <% data.forEach(function(row){ %>
+    <% data.forEach(function(row){%>
         <div class="order">
-        <span class="zeme"><%= row.zeme %></span>
-        <span class="mesto" ><%= row.mesto %></span>
+        <span class="status"><%= row.status %></span>
         <span class="objednavka"><%= row.objednavka %></span>
         <span class="ulice"><%= row.ulice %></span>
-        <span class="psc" ><%= row.psc %></span>
-        <span class="color">default</span>
+        <span class="mesto" ><%= row.mesto %></span>
+        <span class="psc"><%= row.psc %></span>
+        <span class="zeme"><%= row.zeme %></span>
         </div>
       <% }); %>
     </div>
 </main>
 
 <script> 
+
+/// int own variable
     var allOrders = [];
    var allMarks = [];
-    function saveData(){
-       localStorage.setItem("marks", JSON.stringify(allOrders));
-    }
 
-    function resetData(){
-        localStorage.removeItem("marks");
-        // initAllNew();
-        // localStorage.setItem("marks",JSON.stringify(layer.getMarkers()));
-    }
-    
-    var m = new SMap(JAK.gel("m"));
+/// init maps       
+   var m = new SMap(JAK.gel("m"));
     m.addControl(new SMap.Control.Sync());
     m.addDefaultLayer(SMap.DEF_BASE).enable();
     m.addDefaultControls(); 
     var layer = new SMap.Layer.Marker();
     m.addLayer(layer);
     layer.enable();
-    // var clusterer = new SMap.Marker.Clusterer(m);
-    // layer.setClusterer(clusterer);
+
+
+/// reset buttons
+    function saveData(){
+       localStorage.setItem("marks", JSON.stringify(allOrders));
+    }
+
+    function resetData(){
+        localStorage.removeItem("marks");
+    }
 
     
-    
+    /// nepoziva sa toto 
     function changeMarker(markerId, color){
         var allMarks = layer.getMarkers();
         var findeMark = allMarks.find(mark => mark._id == markerId);
@@ -102,19 +104,26 @@ button{
 
         }
         var marker = new SMap.Marker(cords, markerId , options);
-            marker.decorate(SMap.Marker.Feature.Card, card);
+        marker.decorate(SMap.Marker.Feature.Card, card);
         layer.addMarker(marker);
         // layer.addMarker(findeMark, true);
         // layer.redraw();
         // layer.clear();
     }
 
-    let odpoved =  (order) => (geocoder) => { /* Odpověď */
+    function removeMark(markerId){
+        var allMarks = layer.getMarkers();
+        var findeMark = allMarks.find(mark => mark._id == markerId);
+        var findOrder = allOrders.filter(function(order) { return order.label == markerId});
+        layer.removeMarker(findeMark, true);
+    }
+
+    let geocodeCallback =  (order) => (geocoder) => { /* Odpověď */
         if (!geocoder.getResults()[0].results.length) {
-            order.status = "failed";
+            order.result = "failed";
             return;
         }
-        order.status = "success";
+        order.result = "success";
         
         var vysledky = geocoder.getResults()[0].results;
         var data = [];
@@ -122,33 +131,13 @@ button{
             var item = vysledky.shift()
             // console.log(item.coords.x);
             // console.log(item.coords.y);
-            var options = {}
-                switch(order.color){
-                    case 'purple':
-                        options.url = `/images/marks/car1.png`
-                    break;
-                    case 'blue':
-                        options.url = `/images/marks/car2.png`
-                        break;
-                    case 'green': 
-                        options.url = `/images/marks/car3.png`
-                        break;
-                    case 'azure': 
-                        options.url = `/images/marks/car4.png`
-                        break;
-                    default:
-                        options.url = `https://api.mapy.cz/img/api/marker/drop-red.png`
-                }
+            var options = {url: `/images/status/${order.status.replace(/\s/g, '')}.png`}
+        
             var card = new SMap.Card();
             card.getHeader().innerHTML = `<strong>${order.objednavka.text()}</strong>`;
 
-            var pomHtmlImgPurple = `<img onclick="changeMarker('${item.label}', 'purple')" src="/images/marks/car1.png"/>`;
-            var pomHtmlImgBlue = `<img onclick="changeMarker('${item.label}', 'blue')" src="/images/marks/car2.png"/>`;
-            var pomHtmlImgGreen = `<img onclick="changeMarker('${item.label}', 'green')" src="/images/marks/car3.png"/>`;
-            var pomHtmlImgAzure = `<img onclick="changeMarker('${item.label}', 'azure')" src="/images/marks/car4.png"/>`;
-
-            var pomHtmlButton = `<div><button onclick="changeMarker('${item.label}', 'red')"> Remove Mark </button></div>`
-            card.getBody().innerHTML = `${item.label} <div> ${pomHtmlImgPurple} ${pomHtmlImgBlue} ${pomHtmlImgGreen} ${pomHtmlImgAzure}</div> ${pomHtmlButton}`;
+            var pomHtmlButton = `<div><button onclick="removeMark('${item.label}')"> Remove Mark </button></div>`
+            card.getBody().innerHTML = `${item.label} ${order.psc.text()} ${pomHtmlButton}`;
 
             order.label = item.label;
             var coords = SMap.Coords.fromWGS84(item.coords.x, item.coords.y);
@@ -160,12 +149,6 @@ button{
         // console.log(data.join("\n"));
     }
 
-
-
-
-    const geokoduj = (vstup, objednavka) => {  /* Voláno při odeslání */
-        new SMap.Geocoder(vstup, odpoved(objednavka));
-    }
     const initAll = () => {
         allOrders = [];
         $(".order").each(function( index ) {
@@ -176,10 +159,11 @@ button{
             order.ulice = $(this).find(".ulice")
             order.mesto = $(this).find(".mesto")
             order.objednavka = $(this).find(".objednavka")
-            order.color = $(this).find(".color").text()
+            order.status = $(this).find(".status").text()
             order.id = `${order.psc.text()} ${order.ulice.text()} ${order.mesto.text()}`;
             allOrders.push(order)
-            geokoduj(order.id , order);
+
+            new SMap.Geocoder(order.id, geocodeCallback(order));
     });
     }
 
@@ -187,9 +171,8 @@ button{
         let  mar = JSON.parse(localStorage.getItem("marks"));
         $('#orders').empty();
         mar.forEach(mark => {
-            $('#orders').append(`<span class="status"> ${mark.status} <div class="order"> ${mark.html}  </div> </span>`);
-            $('.order:last .color').text(mark.color);
-
+            $('#orders').append(`<span class="status"> ${mark.result} <div class="order"> ${mark.html}  </div> </span>`);
+            $('.order:last .color').text(mark.status);
         });
    
     }
