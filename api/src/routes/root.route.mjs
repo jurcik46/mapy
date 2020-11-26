@@ -31,9 +31,8 @@ router.get("/", function (req, res, next) {
 });
 
 //** GET: "/api/test" */
-router.get("/test", function (req, res, next) {
+router.get("/orders", function (req, res, next) {
   let results = [];
-
   res.status(200).json({test:"test"});
 
 });
