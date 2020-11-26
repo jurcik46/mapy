@@ -30,6 +30,13 @@ router.get("/", function (req, res, next) {
 
 });
 
+//** GET: "/api/test" */
+router.get("/test", function (req, res, next) {
+  let results = [];
+
+  res.status(200).json({test:"test"});
+
+});
 
 //** POST: "/api/" */
 router.get("/refresh", async function (req, res, next) {

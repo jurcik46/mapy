@@ -12,6 +12,7 @@ import { corsOption } from "./configs/security.config.mjs";
 import errorHandlerDev from "errorhandler";
 import { LOG_OUTPUT } from "./configs/logger.config.mjs";
 import { staticFolderPath, APP_ROUTE_PREFIX } from "./configs/app.config.mjs";
+import db from "./src/helpers/database.helper.mjs"
 const app = express();
 
 
@@ -39,19 +40,20 @@ app.use(
 app.use(cookieParser());
 
 //** Static folder  */
-console.log(staticFolderPath);
 app.use(express.static(staticFolderPath));
 
 
 //** Root router implementation */
-app.use(rootRouter);
+app.use(APP_ROUTE_PREFIX,rootRouter);
 //** catch 404 and throw error*/
 app.use(notFoundHandler);
 
 //** Error handler middlewares  */
 if (process.env.APP_MODE === 'development') {
-	// app.use(errorHandlerDev());
+	app.use(errorHandlerDev());
 }
 app.use(errorHandler);
+
+db.testConnection();
 
 export default app;
